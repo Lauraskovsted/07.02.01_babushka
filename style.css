@@ -1,3 +1,4 @@
+/* Generelt */
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -7,7 +8,7 @@ img {
   max-width: 100%;
 }
 
-/* Fonts */
+/************* Fonts ****************/
 
 @font-face {
   font-family: bebasNeue;
@@ -15,24 +16,16 @@ img {
 }
 
 @font-face {
-  font-family: MonoDisplay;
-  src: url(Major_Mono_Display/MajorMonoDisplay-Regular.ttf);
-}
-
-@font-face {
   font-family: Akronim;
   src: url(Akronim/Akronim-Regular.ttf);
 }
-@font-face {
-  font-family: novaMono;
-  src: url(Nova_Mono/NovaMono-Regular.ttf);
-}
+
 @font-face {
   font-family: sancreek;
   src: url(Sancreek/Sancreek-Regular.ttf);
 }
 
-/* navigation liste */
+/************** navigation **************/
 nav {
   list-style: none;
   color: white;
@@ -41,7 +34,7 @@ nav {
 }
 
 button {
-  color: violet;
+  color: #ee82ee;
   padding: 0.5rem;
   font-size: 1rem;
   border-style: none;
@@ -60,7 +53,19 @@ button:hover {
   text-shadow: 1px 1px black;
 }
 
-/* overskrift og header */
+.valgt {
+  border-bottom: 3px solid violet;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+/******** overskrifter og header *************/
+header {
+  background-color: #58695d;
+  padding: 5px;
+  margin: -10px -10px 0px -10px;
+  text-align: center;
+}
+
 h1 {
   text-align: center;
   color: white;
@@ -71,15 +76,16 @@ h1 {
   margin-bottom: 0px;
 }
 
-header {
-  background-color: rgb(88, 105, 93);
-  padding: 5px;
-  margin: -10px -10px 0px -10px;
-  text-align: center;
+h2 {
+  font-family: akronim;
+  font-size: 2rem;
+  font-weight: lighter;
+  color: white;
 }
 
-p,
-li {
+/*************** Article ****************/
+
+p {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -95,27 +101,14 @@ article:hover {
   color: white;
 }
 
-.valgt {
-  border-bottom: 3px solid violet;
-
-  color: white;
-  text-shadow: 1px 1px black;
-}
-
-h2 {
-  font-family: akronim;
-  font-size: 2rem;
-  color: white;
-}
-
-/* grid opbygning */
+/***************** grid opbygning ************/
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
   place-self: center;
 }
 
-/* Style til popup vinduet */
+/****************** Style til popup vinduet **************/
 #popup {
   position: fixed;
   width: 100vw;

@@ -1,5 +1,4 @@
-const header = document.querySelector("header h2");
-
+// ************** Indhentning af data **************
 //Endpoint
 const url = "https://babushka-dd8a.restdb.io/rest/menu";
 
@@ -18,11 +17,7 @@ async function hentData() {
   visRetter();
 }
 
-// container, menuen skal indsættes i.
-const container = document.querySelector("section");
-
-// template konstant
-const template = document.querySelector("template").content;
+// ************************* Filtrering **************************
 
 // Variabel for vores filter sættes lig med alle.
 let filter = "alle";
@@ -30,23 +25,36 @@ let filter = "alle";
 // Laver en konstant til alle mine filter knapper, ved brug af "querySelectorAll".
 const filterKnapper = document.querySelectorAll("nav button");
 
-// Kalder funktionen "filtrerRetter", som indholder det der skal ske, når vi klikker på de forskellige knapper.
+// Kalder funktionen "filtrerRetter"
 filterKnapper.forEach((knap) => knap.addEventListener("click", filtrerRetter));
 
+// konstant til h2 tekst
+const header = document.querySelector("header h2");
+
 function filtrerRetter() {
-  // Sætter filter lig med "this.dataset.kategori", for at fortælle at den skal skifte mellem kategorierne. this står for knapperne og dataset.kategorier står for vores data attribut.
+  // data-attributten fortæller at når der bliver klikket på knapperne, skal den tage udgangspunkt i kategorien.
   filter = this.dataset.kategori;
 
+  // fjerner klassen valgt fra alle
   document.querySelector(".valgt").classList.remove("valgt");
 
+  // tilføjer klassen valgt til kategorierne der bliver klikket på
   this.classList.add("valgt");
-
-  // Kalder visRetter på ny, for at implementere filter
-  visRetter();
 
   // EventHandler funnktionen gør at h2 overskriften passer til den valgte kategori
   header.textContent = this.textContent;
+
+  // Kalder visRetter på ny, for at implementere filter
+  visRetter();
 }
+
+// ********************* indhold til loop-funktion **********************
+
+// container, menuen skal indsættes i.
+const container = document.querySelector("section");
+
+// template konstant
+const template = document.querySelector("template").content;
 
 //loop funktion, som laver klon af template
 function visRetter() {
@@ -75,6 +83,8 @@ function visRetter() {
     }
   });
 }
+
+// ******************************** pop-up vinduet *********************************
 
 function visEnkeltRet(retData) {
   console.log(retData);
